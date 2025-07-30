@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #container{
+        height: 200px;
+        width: 300px;
+        margin-left: 500px;
+       
+    }
+</style>
+<body>
+    <form id="mainform">
+        <label for="text">Name:</label>
+        <input type="text"  id="inputstate" placeholder="Enter Your Name">
+        <button>Submit</button>
+    </form>
+    <h1 id="name" style="background: red;"></h1>
+    <select  id="colours">
+        <option value="red">red</option>
+        <option value="yellow">yellow</option>
+        <option value="black">black</option>
+        <option value="skyblue">skyblue</option>
+        <option value="green">green</option>
+    </select>
+    <div id="container">
+
+    </div>
+</body>
+<script>
+
+    let form = document.getElementById("mainform")
+    let box = document.getElementById("inputstate")
+    const text1 = document.getElementById("name")
+    const select = document.getElementById("colours")
+    let div1 = document.getElementById("container")
+    select.addEventListener("change",function(event){
+        div1.style.background = select.value
+    })
+    box.addEventListener("focus",function(event){
+        event.target.style.background = "pink"
+    })
+      box.addEventListener("blur",function(event){
+        event.target.style.background = ""
+    })
+    form.addEventListener("submit",function(e){
+        e.preventDefault()
+      
+        let user = box.value
+        text1.textContent = user
+          form.reset()
+    })
+
+
+
+
+
+const container = document.createElement('div')
+container.style.padding = '20px'
+container.style.border = '1px solid black';
+
+const button = document.createElement('button');
+button.textContent = 'Click me!';
+button.style.margin = '10px';
+
+const input = document.getElementById('input')
+input.type = 'text';
+input.placeholder = 'Type something...';
+input.style.margin = '10px';
+
+
+container.appendChild(button)
+container.appendChild(input)
+document.body.appendChild(container)
+
+button.addEventListener("click",function(){
+    console.log("button clicked")
+    alert("button Clicked")
+})
+
+
+</script>
+</html>
